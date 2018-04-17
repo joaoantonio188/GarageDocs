@@ -3,31 +3,43 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AddVeiculoPage } from '../pages/addVeiculo/addVeiculo';
+import { SearchPage } from '../pages/search/search';
+import { AngularFireModule } from "angularfire2";
+
+
+export const firebaseConfig = {
+    apiKey: "AIzaSyDXGs6udxT4wkgKTmqP9HQxKjjHgSv5vzs",
+    authDomain: "garagedocs-eeb21.firebaseapp.com",
+    databaseURL: "https://garagedocs-eeb21.firebaseio.com",
+    projectId: "garagedocs-eeb21",
+    storageBucket: "",
+    messagingSenderId: "958886778628"
+}
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    AddVeiculoPage,
+    SearchPage,
     HomePage,
     TabsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    AddVeiculoPage,
+    SearchPage,
     HomePage,
     TabsPage
   ],
