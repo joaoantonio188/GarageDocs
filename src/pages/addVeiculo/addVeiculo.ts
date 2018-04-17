@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { FirebaseListObservable, AngularFire } from "angularfire2";
-
-export class Veiculo{
-  id: string;
-  dono: string;
-  modelo: string;
-}
-
+import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 
 @Component({
   selector: 'page-addVeiculo',
@@ -15,10 +8,25 @@ export class Veiculo{
 })
 export class AddVeiculoPage {
 
-  constructor(public navCtrl: NavController) {
+  formDadosVeiculo: FormGroup
 
+  constructor(public fb: FormBuilder, public navCtrl: NavController) {
+    this.formDadosVeiculo = fb.group({
+      tipoVeiculo: [null,[Validators.required]],
+      modelo: [null,[Validators.required]],
+      marca: [null,[Validators.required]],
+      placa: [null,[Validators.required]],
+      ano: [null,[Validators.required, Validators.minLength(8)]],
+      descricao: [null,[Validators.required, Validators.minLength(11)]]
+    })
   }
- 
-  lista: FirebaseListObservable<any>;
-  carro: Veiculo;
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad FormularioPage');
+  }
+
+  enviarDados(){
+    console.log(this.formDadosVeiculo.value)
+  }
+
 }

@@ -7,11 +7,43 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
+  <form [formGroup]="formDadosVeiculo" (ngSubmit)="enviarDados(); $event.preventDefault()">
+  <ion-list radio-group formControlName="tipoVeiculo">
     <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+          <ion-label>Carro</ion-label>
+          <ion-radio value="carro" checked></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Moto</ion-label>
+          <ion-radio value="moto" ></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Caminhão</ion-label>
+          <ion-radio value="caminhão" ></ion-radio>
+        </ion-item>
+    </ion-list>
+    
+        <ion-item>
+      <ion-label floating>Modelo</ion-label>
+      <ion-input type="text" formControlName="modelo"></ion-input>
     </ion-item>
-  </ion-list>
+    <ion-item>
+      <ion-label floating>Marca</ion-label>
+      <ion-input type="text" formControlName="marca"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Placa</ion-label>
+      <ion-input type="text" formControlName="placa"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Ano/Modelo</ion-label>
+      <ion-input type="number" formControlName="ano"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Descrição</ion-label>
+      <ion-input type="text" formControlName="descricao"></ion-input>
+    </ion-item>
+    
+        <button ion-button type="submit" >Enviar</button>
+  </form>
 </ion-content>
