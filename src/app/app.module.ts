@@ -11,6 +11,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AddVeiculoPage } from '../pages/addVeiculo/addVeiculo';
 import { SearchPage } from '../pages/search/search';
 import { AngularFireModule } from "angularfire2";
+import { CadastroPage } from '../pages/cadastro/cadastro';
+import { AddPessoaPage } from '../pages/add-pessoa/add-pessoa';
 
 
 export const firebaseConfig = {
@@ -28,7 +30,9 @@ export const firebaseConfig = {
     AddVeiculoPage,
     SearchPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    CadastroPage,
+    AddPessoaPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,10 @@ export const firebaseConfig = {
     AddVeiculoPage,
     SearchPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    CadastroPage,
+    AddPessoaPage
+
   ],
   providers: [
     StatusBar,

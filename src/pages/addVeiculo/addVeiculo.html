@@ -1,13 +1,13 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      Cadastrar Veículo
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="formDadosVeiculo" (ngSubmit)="enviarDados(); $event.preventDefault()">
+  <form margin-right [formGroup]="formDadosVeiculo" (ngSubmit)="enviarDados(); $event.preventDefault()">
   <ion-list radio-group formControlName="tipoVeiculo">
     <ion-item>
           <ion-label>Carro</ion-label>
@@ -43,7 +43,8 @@
       <ion-label floating>Descrição</ion-label>
       <ion-input type="text" formControlName="descricao"></ion-input>
     </ion-item>
-    
-        <button ion-button type="submit" >Enviar</button>
+    <div text-center margin-top>
+        <button class="button-custom" ion-button type="submit" >Cadastrar</button>
+    </div>
   </form>
 </ion-content>
