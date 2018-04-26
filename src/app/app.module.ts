@@ -10,19 +10,21 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AddVeiculoPage } from '../pages/addVeiculo/addVeiculo';
 import { SearchPage } from '../pages/search/search';
-import { AngularFireModule } from "angularfire2";
 import { CadastroPage } from '../pages/cadastro/cadastro';
 import { AddPessoaPage } from '../pages/add-pessoa/add-pessoa';
+import { TesteFirebasePage } from '../pages/teste-firebase/teste-firebase';
 
 
-export const firebaseConfig = {
-    apiKey: "AIzaSyDXGs6udxT4wkgKTmqP9HQxKjjHgSv5vzs",
-    authDomain: "garagedocs-eeb21.firebaseapp.com",
-    databaseURL: "https://garagedocs-eeb21.firebaseio.com",
-    projectId: "garagedocs-eeb21",
-    storageBucket: "",
-    messagingSenderId: "958886778628"
-}
+import { AngularFireModule } from "angularfire2";
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+import { firebaseConfig } from '../enviroment/firebaseConfig';
+
+
+
 
 @NgModule({
   declarations: [
@@ -32,12 +34,17 @@ export const firebaseConfig = {
     HomePage,
     TabsPage,
     CadastroPage,
-    AddPessoaPage
+    AddPessoaPage,
+    TesteFirebasePage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig.firebase, 'garagedocs'),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -47,7 +54,8 @@ export const firebaseConfig = {
     HomePage,
     TabsPage,
     CadastroPage,
-    AddPessoaPage
+    AddPessoaPage,
+    TesteFirebasePage
 
   ],
   providers: [
