@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding id="content" class="background-img" no-bounce >
 
   <form [formGroup]="formVeiculo" padding (ngSubmit)="submit(); $event.preventDefault()" ion-fixed class="form">
 
@@ -66,11 +66,10 @@
     </ion-item>
   
 
- 
 
   <ion-item>
     <ion-label floating>Renavam</ion-label>
-    <ion-input type="number" formControlName="renavam" ionic-password-show-hide></ion-input>
+    <ion-input type="text" spellcheck="false" autocapitalize="off" formControlName="renavam"></ion-input>
   </ion-item>
   <ion-item *ngIf="formVeiculo.get('renavam').errors && formVeiculo.get('renavam').dirty">
     <p *ngIf="formVeiculo.get('renavam').hasError('required')">Campo obrigatório</p>
@@ -113,7 +112,7 @@
 </ion-item>
 </ion-list>
 
-    <button ion-button full type="submit" [disabled]="formVeiculo.invalid">Enviar</button>
+    <button ion-button full type="submit" >Enviar</button>
 
   </form>
 </ion-content>
